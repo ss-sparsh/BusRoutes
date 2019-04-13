@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Routes</title>
+</head>
+<body>
+    <div class="container">
+        {% for key in templateData.keys() %}
+            {% if key != "DIRECT" %}
+                {% for j in templateData[key] %}
+                    {% for i in j[1]%}
+                        Take {{ key }} to {{i}}, then take {{j[0]}} to the destination.<br>
+                    {% endfor %}
+                {% endfor %}
+            {% else %}
+                Take {{templateData[key][0]}} directly to the destination.
+            {% endif %}
+        <br>
+        {% endfor %}
+    </div>
+</body>
+</html>
